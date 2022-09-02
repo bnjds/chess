@@ -77,9 +77,16 @@ fn create_pieces_system(
 
 
     //materials
-    let white_material = materials.add(Color::rgb(1., 0.8, 0.8).into());
-    let black_material = materials.add(Color::rgb(0.2, 0.2, 0.2).into());
-    
+    let white_material = materials.add(StandardMaterial {
+        base_color: Color::rgb(1., 0.8, 0.8),
+        perceptual_roughness: 0.9,
+        ..default()
+    });
+    let black_material = materials.add(StandardMaterial {
+        base_color: Color::rgb(0.2, 0.2, 0.2),
+        perceptual_roughness: 0.9,
+        ..default()
+    });
 
     //NOTE: (official bevy) example that uses "&mut commands" as arg / for a fn that has "commands: &mut Commands" as a parameter:
     //  https://github.com/bevyengine/bevy/blob/992681b59b93be3efd52ad8d5a34ebb4ddfd0c20/examples/stress_tests/bevymark.rs
