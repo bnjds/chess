@@ -20,9 +20,9 @@ fn main() {
         .add_plugins(DefaultPlugins)
         .add_plugins(DefaultPickingPlugins)
         .add_plugin(DebugCursorPickingPlugin) //Remove this to get rid of the green debug line/sphere
+        .add_plugin(BoardPlugin)
+        .add_plugin(PiecesPlugin)
         .add_startup_system(setup_system) //startup_systems only run once, at the beginning
-        .add_startup_system(create_board_system)
-        .add_startup_system(create_pieces_system)
         .run();
 }
 
